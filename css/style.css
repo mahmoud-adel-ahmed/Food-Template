@@ -41,7 +41,8 @@ section {
   color: #ff0175;
 }
 .heading p {
-  font-size: 1.0625rem;
+  font-size: 1rem;
+  line-height: 1.8;
 }
 
 .btn {
@@ -63,7 +64,7 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 2rem 5%;
+  padding: 1rem 5%;
   text-transform: capitalize;
   position: fixed;
   top: 0;
@@ -104,7 +105,6 @@ header nav ul li a:hover {
 }
 header.active {
   background: #fff;
-  padding: 1rem 5%;
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.08);
 }
 header.active .logo h1 {
@@ -141,29 +141,25 @@ header .fa-bars {
 .banner .content p {
   padding: 1rem 0;
   font-size: 1.0625rem;
-  line-height: 1.7;
+  line-height: 2;
 }
 
 .about .box-container {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
   flex-wrap: wrap;
+  gap: 2rem;
 }
 .about .box-container .image {
-  flex-basis: 47%;
-  height: 25rem;
-  flex-grow: 1;
+  flex: 1 1 47%;
 }
 .about .box-container .image img {
   width: 100%;
-  height: 100%;
+  height: 30rem;
   -o-object-fit: cover;
      object-fit: cover;
 }
 .about .box-container .content {
-  flex-basis: 50%;
-  flex-grow: 1;
+  flex: 1 1 50%;
 }
 .about .box-container .content h3 {
   font-size: 1.5625rem;
@@ -175,10 +171,12 @@ header .fa-bars {
   color: #ff0175;
 }
 .about .box-container .content p {
-  font-size: 1.1rem;
-  padding: 0.5rem 0;
+  font-size: 1.0625rem;
   color: #111;
-  line-height: 1.7;
+  line-height: 2;
+}
+.about .box-container .content p:last-of-type {
+  padding-top: 0.7rem;
 }
 
 .menu,
@@ -199,7 +197,7 @@ header .fa-bars {
 .menu .box-container .box,
 .expert .box-container .box,
 .testimonials .box-container .box {
-  border: 1px solid #ddd;
+  border: 0.0625rem solid #ddd;
   padding: 1.5rem;
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.08);
   text-align: left;
@@ -221,7 +219,7 @@ header .fa-bars {
 }
 
 .menu .box-container .box {
-  flex-basis: 30%;
+  flex: 1 1 30%;
 }
 
 .expert .box-container {
@@ -229,7 +227,7 @@ header .fa-bars {
   gap: 2rem;
 }
 .expert .box-container .box {
-  flex-basis: 22%;
+  flex: 1 1 22%;
   box-shadow: none;
   border: 0;
   padding: 0;
@@ -244,7 +242,7 @@ header .fa-bars {
   gap: 2rem;
 }
 .testimonials .box-container .box {
-  flex-basis: 26%;
+  flex: 1 1 31%;
   text-align: center;
   text-transform: capitalize;
   background: #fff;
@@ -277,8 +275,8 @@ header .fa-bars {
   flex-wrap: wrap;
 }
 .contact .box-container .box {
-  flex-basis: 40%;
-  padding: 5rem 1.5rem;
+  flex: 0 1 40%;
+  padding: 5rem 1rem;
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.08);
   background-color: #fff;
   text-transform: capitalize;
@@ -292,7 +290,7 @@ header .fa-bars {
   text-transform: capitalize;
   margin: 1rem 0;
   padding: 0.7rem;
-  font-size: calc(0.8rem + 5px);
+  font-size: calc(0.7rem + 5px);
   color: #111;
   outline: 0;
   border: 0.0625rem solid #ddd;
@@ -326,7 +324,7 @@ header {
     padding: 2rem;
   }
   header .logo h1 {
-    font-size: 2rem;
+    font-size: 1.875rem;
   }
   .banner .content h2 {
     font-size: 3.75rem;
@@ -339,7 +337,7 @@ header {
   }
   .about .box-container .image,
 .about .box-container .content {
-    flex-basis: 47%;
+    flex: 1 1 100%;
   }
   .about .box-container .content p {
     font-size: 0.9375rem;
@@ -351,7 +349,7 @@ header {
     justify-content: center;
   }
   .menu .box-container .box {
-    flex-basis: 48%;
+    flex: 1 1 48%;
   }
   .menu .box-container .box p {
     font-size: calc(0.5rem + 7px);
@@ -360,28 +358,35 @@ header {
     justify-content: center;
   }
   .expert .box-container .box {
-    flex-basis: 46%;
+    flex: 1 1 46%;
   }
   .expert .box-container .box p {
     font-size: calc(0.5rem + 7px);
   }
-  .testimonials .box-container {
-    justify-content: center;
-  }
   .testimonials .box-container .box {
-    flex-basis: 46%;
+    flex: 1 1 47%;
   }
   .testimonials .box-container .box p {
     font-size: calc(0.5rem + 7px);
   }
   .contact .box-container .box {
-    flex-basis: 50%;
+    flex: 0 1 50%;
+    max-width: 60%;
   }
   footer p {
     font-size: 1.1rem;
   }
 }
 @media screen and (max-width: 48em) {
+  .btn {
+    font-size: 0.9375rem;
+  }
+  .heading h3 {
+    font-size: 1.25rem;
+  }
+  .heading h3 span {
+    font-size: 1.875rem;
+  }
   section {
     padding: 1rem;
   }
@@ -429,10 +434,11 @@ header {
     color: #fff;
   }
   .banner .content h2 {
-    font-size: 2.8125rem;
+    font-size: 2.375rem;
   }
   .banner .content p {
     font-size: 1rem;
+    line-height: 2;
   }
   .about .box-container {
     gap: 1rem;
@@ -441,13 +447,28 @@ header {
 .about .box-container .content {
     flex-basis: 100%;
   }
+  .about .box-container .image p,
+.about .box-container .content p {
+    font-size: 0.875rem;
+  }
   .about .box-container .content p:last-of-type {
     display: block;
   }
   .menu .box-container .box,
 .testimonials .box-container .box,
 .expert .box-container .box {
-    flex-basis: 90%;
+    flex: 1 1 100%;
+  }
+  .menu .box-container .box p,
+.testimonials .box-container .box p,
+.expert .box-container .box p {
+    font-size: 0.875rem;
+    line-height: 2;
+  }
+  .menu .box-container .box span,
+.testimonials .box-container .box span,
+.expert .box-container .box span {
+    font-size: 0.9375rem;
   }
   .contact {
     background: none;
@@ -456,7 +477,11 @@ header {
     justify-content: center;
   }
   .contact .box-container .box {
-    padding: 2rem;
-    flex-basis: 100%;
+    padding: 2rem 1rem;
+    flex: 0 1 100%;
+    max-width: 100%;
+  }
+  footer p {
+    font-size: 0.9375rem;
   }
 }/*# sourceMappingURL=style.css.map */

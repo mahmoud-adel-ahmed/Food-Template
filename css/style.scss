@@ -50,7 +50,8 @@ section {
     }
   }
   p {
-    font-size: pxToRemCalc(17);
+    font-size: pxToRemCalc(16);
+    line-height: 1.8;
   }
 }
 
@@ -70,14 +71,14 @@ section {
 }
 
 @mixin boxSize($size) {
-  flex-basis: $size;
+  flex: 1 1 $size;
 }
 
 header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 2rem 5%;
+  padding: 1rem 5%;
   text-transform: capitalize;
   position: fixed;
   top: 0;
@@ -119,7 +120,6 @@ header {
   }
   &.active {
     background: #fff;
-    padding: 1rem 5%;
     box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.08);
     .logo {
       h1 {
@@ -163,7 +163,7 @@ header {
     p {
       padding: 1rem 0;
       font-size: pxToRemCalc(17);
-      line-height: 1.7;
+      line-height: 2;
     }
   }
 }
@@ -171,22 +171,18 @@ header {
 .about {
   .box-container {
     display: flex;
-    align-items: center;
-    justify-content: space-between;
     flex-wrap: wrap;
+    gap: 2rem;
     .image {
-      flex-basis: 47%;
-      height: 25rem;
-      flex-grow: 1;
+      flex: 1 1 47%;
       img {
         width: 100%;
-        height: 100%;
+        height: 30rem;
         object-fit: cover;
       }
     }
     .content {
-      flex-basis: 50%;
-      flex-grow: 1;
+      flex: 1 1 50%;
       h3 {
         font-size: pxToRemCalc(25);
         padding: 0.5rem 0;
@@ -197,10 +193,12 @@ header {
         }
       }
       p {
-        font-size: 1.1rem;
-        padding: 0.5rem 0;
+        font-size: pxToRemCalc(17);
         color: #111;
-        line-height: 1.7;
+        line-height: 2;
+        &:last-of-type {
+          padding-top: 0.7rem;
+        }
       }
     }
   }
@@ -218,7 +216,7 @@ header {
     flex-wrap: wrap;
     gap: 1rem;
     .box {
-      border: 1px solid #ddd;
+      border: pxToRemCalc(1) solid #ddd;
       padding: 1.5rem;
       box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.08);
       text-align: left;
@@ -265,7 +263,7 @@ header {
     margin-top: 1.5rem;
     gap: 2rem;
     .box {
-      @include boxSize(26%);
+      @include boxSize(31%);
       text-align: center;
       text-transform: capitalize;
       background: #fff;
@@ -298,8 +296,8 @@ header {
     align-items: center;
     flex-wrap: wrap;
     .box {
-      flex-basis: 40%;
-      padding: 5rem 1.5rem;
+      flex: 0 1 40%;
+      padding: 5rem 1rem;
       box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.08);
       background-color: #fff;
       text-transform: capitalize;
@@ -313,7 +311,7 @@ header {
           text-transform: capitalize;
           margin: 1rem 0;
           padding: 0.7rem;
-          font-size: calc(0.8rem + 5px);
+          font-size: calc(0.7rem + 5px);
           color: #111;
           outline: 0;
           border: pxToRemCalc(1) solid #ddd;
@@ -357,7 +355,7 @@ footer {
   header {
     .logo {
       h1 {
-        font-size: pxToRemCalc(32);
+        font-size: pxToRemCalc(30);
       }
     }
   }
@@ -378,7 +376,7 @@ footer {
       gap: 1rem;
       .image,
       .content {
-        flex-basis: 47%;
+        flex: 1 1 100%;
       }
       .content {
         p {
@@ -417,9 +415,8 @@ footer {
 
   .testimonials {
     .box-container {
-      justify-content: center;
       .box {
-        @include boxSize(46%);
+        @include boxSize(47%);
         p {
           font-size: calc(0.5rem + 7px);
         }
@@ -430,7 +427,8 @@ footer {
   .contact {
     .box-container {
       .box {
-        flex-basis: 50%;
+        flex: 0 1 50%;
+        max-width: 60%;
       }
     }
   }
@@ -442,6 +440,18 @@ footer {
 }
 
 @media screen and (max-width: 48em) {
+  .btn {
+    font-size: pxToRemCalc(15);
+  }
+  .heading {
+    h3 {
+      font-size: pxToRemCalc(20);
+      span {
+        font-size: pxToRemCalc(30);
+      }
+    }
+  }
+
   section {
     padding: 1rem;
   }
@@ -495,10 +505,11 @@ footer {
   .banner {
     .content {
       h2 {
-        font-size: pxToRemCalc(45);
+        font-size: pxToRemCalc(38);
       }
       p {
         font-size: pxToRemCalc(16);
+        line-height: 2;
       }
     }
   }
@@ -509,6 +520,9 @@ footer {
       .image,
       .content {
         flex-basis: 100%;
+        p {
+          font-size: pxToRemCalc(14);
+        }
       }
       .content {
         p {
@@ -525,7 +539,14 @@ footer {
   .expert {
     .box-container {
       .box {
-        @include boxSize(90%);
+        @include boxSize(100%);
+        p {
+          font-size: pxToRemCalc(14);
+          line-height: 2;
+        }
+        span {
+          font-size: pxToRemCalc(15);
+        }
       }
     }
   }
@@ -534,9 +555,16 @@ footer {
     .box-container {
       justify-content: center;
       .box {
-        padding: 2rem;
-        flex-basis: 100%;
+        padding: 2rem 1rem;
+        flex: 0 1 100%;
+        max-width: 100%;
       }
+    }
+  }
+
+  footer {
+    p {
+      font-size: pxToRemCalc(15);
     }
   }
 }
