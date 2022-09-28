@@ -7,6 +7,7 @@
 
 html {
   scroll-behavior: smooth;
+  font-size: 100%;
 }
 
 li {
@@ -15,6 +16,10 @@ li {
 
 a {
   text-decoration: none;
+}
+
+img {
+  max-width: 100%;
 }
 
 section {
@@ -26,33 +31,32 @@ section {
   text-align: center;
 }
 .heading h3 {
-  font-size: 25px;
+  font-size: 1.5rem;
   padding: 0.5rem 0;
   text-transform: capitalize;
-  font-size: 35px;
 }
 .heading h3 span {
-  font-size: 50px;
+  font-size: 3.125rem;
   text-transform: capitalize;
   color: #ff0175;
 }
 .heading p {
-  font-size: 1.1rem;
+  font-size: 1.0625rem;
 }
 
 .btn {
   background: #ff0175;
   display: inline-block;
   padding: 0.7rem 1.5rem;
-  font-size: 18px;
-  letter-spacing: 1px;
-  margin-top: 10px;
+  font-size: 1.125rem;
+  letter-spacing: 0.0625rem;
+  margin-top: 0.625rem;
   color: #fff;
   text-transform: uppercase;
   transition: all 0.3s ease;
 }
 .btn:hover {
-  letter-spacing: 4px;
+  letter-spacing: 0.25rem;
 }
 
 header {
@@ -72,9 +76,10 @@ header .logo {
   flex: 1;
 }
 header .logo h1 {
-  font-size: 40px;
+  font-size: 2.5rem;
   font-weight: normal;
   color: #fff;
+  padding: 1rem 0;
 }
 header .logo h1 span {
   color: #ff0175;
@@ -89,9 +94,10 @@ header nav ul {
 }
 header nav ul li a {
   color: #fff;
-  font-size: 20px;
-  padding: 15px;
+  font-size: 1.25rem;
+  padding: 0.9375rem;
   transition: all 0.5s ease;
+  display: inline-block;
 }
 header nav ul li a:hover {
   color: #ff0175;
@@ -111,7 +117,7 @@ header.active nav ul li a:hover {
   color: #ff0175;
 }
 header .fa-bars {
-  font-size: 1.9rem;
+  font-size: 1.6875rem;
   display: none;
   cursor: pointer;
 }
@@ -129,12 +135,12 @@ header .fa-bars {
   color: #fff;
 }
 .banner .content h2 {
-  font-size: 75px;
+  font-size: 4.6875rem;
   padding-bottom: 0.5rem;
 }
 .banner .content p {
   padding: 1rem 0;
-  font-size: 17px;
+  font-size: 1.0625rem;
   line-height: 1.7;
 }
 
@@ -147,6 +153,7 @@ header .fa-bars {
 .about .box-container .image {
   flex-basis: 47%;
   height: 25rem;
+  flex-grow: 1;
 }
 .about .box-container .image img {
   width: 100%;
@@ -156,13 +163,14 @@ header .fa-bars {
 }
 .about .box-container .content {
   flex-basis: 50%;
+  flex-grow: 1;
 }
 .about .box-container .content h3 {
-  font-size: 25px;
+  font-size: 1.5625rem;
   padding: 0.5rem 0;
 }
 .about .box-container .content h3 span {
-  font-size: 50px;
+  font-size: 3.125rem;
   text-transform: capitalize;
   color: #ff0175;
 }
@@ -207,7 +215,7 @@ header .fa-bars {
 .menu .box-container .box p,
 .expert .box-container .box p,
 .testimonials .box-container .box p {
-  font-size: 1.2rem;
+  font-size: 1.0625rem;
   color: #111;
   text-transform: capitalize;
 }
@@ -249,13 +257,13 @@ header .fa-bars {
   margin-bottom: 0;
 }
 .testimonials .box-container .box p {
-  line-height: 1.6;
+  line-height: 1.7;
   color: #111;
-  font-size: 1.1rem;
+  font-size: 1.0625rem;
   padding: 1rem 0;
 }
 .testimonials .box-container .box span {
-  font-size: 1.3rem;
+  font-size: 1.1875rem;
   color: #ff0175;
 }
 
@@ -276,7 +284,7 @@ header .fa-bars {
   text-transform: capitalize;
 }
 .contact .box-container .box h3 {
-  font-size: 25px;
+  font-size: 1.4375rem;
 }
 .contact .box-container .box form input,
 .contact .box-container .box form textarea {
@@ -284,10 +292,10 @@ header .fa-bars {
   text-transform: capitalize;
   margin: 1rem 0;
   padding: 0.7rem;
-  font-size: 1.2rem;
+  font-size: calc(0.8rem + 5px);
   color: #111;
   outline: 0;
-  border: 1px solid #ddd;
+  border: 0.0625rem solid #ddd;
 }
 .contact .box-container .box textarea {
   height: 7rem;
@@ -306,19 +314,25 @@ footer p span {
   color: #ff0175;
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 64em) {
+  .heading h3 {
+    font-size: 1.25rem;
+  }
+  .heading p {
+    font-size: 1rem;
+  }
   section,
 header {
     padding: 2rem;
   }
-  .btn {
-    font-size: 16px;
+  header .logo h1 {
+    font-size: 2rem;
   }
   .banner .content h2 {
-    font-size: 60px;
+    font-size: 3.75rem;
   }
   .banner .content p {
-    font-size: 18px;
+    font-size: 1.125rem;
   }
   .about .box-container {
     gap: 1rem;
@@ -326,6 +340,9 @@ header {
   .about .box-container .image,
 .about .box-container .content {
     flex-basis: 47%;
+  }
+  .about .box-container .content p {
+    font-size: 0.9375rem;
   }
   .about .box-container .content p:last-of-type {
     display: none;
@@ -336,11 +353,17 @@ header {
   .menu .box-container .box {
     flex-basis: 48%;
   }
+  .menu .box-container .box p {
+    font-size: calc(0.5rem + 7px);
+  }
   .expert .box-container {
     justify-content: center;
   }
   .expert .box-container .box {
     flex-basis: 46%;
+  }
+  .expert .box-container .box p {
+    font-size: calc(0.5rem + 7px);
   }
   .testimonials .box-container {
     justify-content: center;
@@ -348,19 +371,19 @@ header {
   .testimonials .box-container .box {
     flex-basis: 46%;
   }
+  .testimonials .box-container .box p {
+    font-size: calc(0.5rem + 7px);
+  }
   .contact .box-container .box {
     flex-basis: 50%;
   }
-}
-@media screen and (max-width: 768px) {
-  html {
-    font-size: 90%;
+  footer p {
+    font-size: 1.1rem;
   }
+}
+@media screen and (max-width: 48em) {
   section {
     padding: 1rem;
-  }
-  .btn {
-    font-size: 16px;
   }
   header {
     flex-direction: column;
@@ -385,6 +408,7 @@ header {
     display: block;
     padding: 0.7rem 0;
     color: #111;
+    font-size: 1.0625rem;
   }
   header nav.active {
     left: 0;
@@ -400,15 +424,15 @@ header {
     align-items: center;
     align-self: flex-end;
     position: absolute;
-    top: 1.7rem;
+    top: calc(2rem + 5px);
     right: 1rem;
     color: #fff;
   }
   .banner .content h2 {
-    font-size: 45px;
+    font-size: 2.8125rem;
   }
   .banner .content p {
-    font-size: 16px;
+    font-size: 1rem;
   }
   .about .box-container {
     gap: 1rem;

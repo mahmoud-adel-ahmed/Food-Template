@@ -1,3 +1,5 @@
+@use "sass:math";
+
 * {
   margin: 0;
   padding: 0;
@@ -5,8 +7,17 @@
   font-family: "Times New Roman", Times, serif;
 }
 
+@function pxToRemCalc($pixel) {
+  @if math.is-unitless($pixel) {
+    @return math.div($pixel, 16) + rem;
+  } @else {
+    @error "please enter valid number";
+  }
+}
+
 html {
   scroll-behavior: smooth;
+  font-size: 100%;
 }
 
 li {
@@ -17,6 +28,10 @@ a {
   text-decoration: none;
 }
 
+img {
+  max-width: 100%;
+}
+
 section {
   padding: 6rem 5%;
 }
@@ -25,18 +40,17 @@ section {
   padding: 1rem 0;
   text-align: center;
   h3 {
-    font-size: 25px;
+    font-size: pxToRemCalc(24);
     padding: 0.5rem 0;
     text-transform: capitalize;
-    font-size: 35px;
     span {
-      font-size: 50px;
+      font-size: pxToRemCalc(50);
       text-transform: capitalize;
       color: #ff0175;
     }
   }
   p {
-    font-size: 1.1rem;
+    font-size: pxToRemCalc(17);
   }
 }
 
@@ -44,14 +58,14 @@ section {
   background: #ff0175;
   display: inline-block;
   padding: 0.7rem 1.5rem;
-  font-size: 18px;
-  letter-spacing: 1px;
-  margin-top: 10px;
+  font-size: pxToRemCalc(18);
+  letter-spacing: pxToRemCalc(1);
+  margin-top: pxToRemCalc(10);
   color: #fff;
   text-transform: uppercase;
   transition: all 0.3s ease;
   &:hover {
-    letter-spacing: 4px;
+    letter-spacing: pxToRemCalc(4);
   }
 }
 
@@ -74,9 +88,10 @@ header {
   .logo {
     flex: 1;
     h1 {
-      font-size: 40px;
+      font-size: pxToRemCalc(40);
       font-weight: normal;
       color: #fff;
+      padding: 1rem 0;
       span {
         color: #ff0175;
       }
@@ -91,9 +106,10 @@ header {
       li {
         a {
           color: #fff;
-          font-size: 20px;
-          padding: 15px;
+          font-size: pxToRemCalc(20);
+          padding: pxToRemCalc(15);
           transition: all 0.5s ease;
+          display: inline-block;
           &:hover {
             color: #ff0175;
           }
@@ -124,7 +140,7 @@ header {
     }
   }
   .fa-bars {
-    font-size: 1.9rem;
+    font-size: pxToRemCalc(27);
     display: none;
     cursor: pointer;
   }
@@ -141,12 +157,12 @@ header {
     text-align: center;
     color: #fff;
     h2 {
-      font-size: 75px;
+      font-size: pxToRemCalc(75);
       padding-bottom: 0.5rem;
     }
     p {
       padding: 1rem 0;
-      font-size: 17px;
+      font-size: pxToRemCalc(17);
       line-height: 1.7;
     }
   }
@@ -161,6 +177,7 @@ header {
     .image {
       flex-basis: 47%;
       height: 25rem;
+      flex-grow: 1;
       img {
         width: 100%;
         height: 100%;
@@ -169,11 +186,12 @@ header {
     }
     .content {
       flex-basis: 50%;
+      flex-grow: 1;
       h3 {
-        font-size: 25px;
+        font-size: pxToRemCalc(25);
         padding: 0.5rem 0;
         span {
-          font-size: 50px;
+          font-size: pxToRemCalc(50);
           text-transform: capitalize;
           color: #ff0175;
         }
@@ -211,7 +229,7 @@ header {
         margin-bottom: 1rem;
       }
       p {
-        font-size: 1.2rem;
+        font-size: pxToRemCalc(17);
         color: #111;
         text-transform: capitalize;
       }
@@ -251,7 +269,7 @@ header {
       text-align: center;
       text-transform: capitalize;
       background: #fff;
-      padding: 2rem;
+      padding: pxToRemCalc(32);
       img {
         width: 7rem;
         height: 7rem;
@@ -259,13 +277,13 @@ header {
         margin-bottom: 0;
       }
       p {
-        line-height: 1.6;
+        line-height: 1.7;
         color: #111;
-        font-size: 1.1rem;
+        font-size: pxToRemCalc(17);
         padding: 1rem 0;
       }
       span {
-        font-size: 1.3rem;
+        font-size: pxToRemCalc(19);
         color: #ff0175;
       }
     }
@@ -286,7 +304,7 @@ header {
       background-color: #fff;
       text-transform: capitalize;
       h3 {
-        font-size: 25px;
+        font-size: pxToRemCalc(23);
       }
       form {
         input,
@@ -295,14 +313,12 @@ header {
           text-transform: capitalize;
           margin: 1rem 0;
           padding: 0.7rem;
-
-          font-size: 1.2rem;
+          font-size: calc(0.8rem + 5px);
           color: #111;
           outline: 0;
-          border: 1px solid #ddd;
+          border: pxToRemCalc(1) solid #ddd;
         }
       }
-
       textarea {
         height: 7rem;
         resize: none;
@@ -323,23 +339,36 @@ footer {
   }
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 64em) {
+  .heading {
+    h3 {
+      font-size: pxToRemCalc(20);
+    }
+    p {
+      font-size: pxToRemCalc(16);
+    }
+  }
+
   section,
   header {
     padding: 2rem;
   }
 
-  .btn {
-    font-size: 16px;
+  header {
+    .logo {
+      h1 {
+        font-size: pxToRemCalc(32);
+      }
+    }
   }
 
   .banner {
     .content {
       h2 {
-        font-size: 60px;
+        font-size: pxToRemCalc(60);
       }
       p {
-        font-size: 18px;
+        font-size: pxToRemCalc(18);
       }
     }
   }
@@ -353,6 +382,7 @@ footer {
       }
       .content {
         p {
+          font-size: pxToRemCalc(15);
           &:last-of-type {
             display: none;
           }
@@ -366,6 +396,9 @@ footer {
       justify-content: center;
       .box {
         @include boxSize(48%);
+        p {
+          font-size: calc(0.5rem + 7px);
+        }
       }
     }
   }
@@ -375,6 +408,9 @@ footer {
       justify-content: center;
       .box {
         @include boxSize(46%);
+        p {
+          font-size: calc(0.5rem + 7px);
+        }
       }
     }
   }
@@ -384,6 +420,9 @@ footer {
       justify-content: center;
       .box {
         @include boxSize(46%);
+        p {
+          font-size: calc(0.5rem + 7px);
+        }
       }
     }
   }
@@ -395,18 +434,16 @@ footer {
       }
     }
   }
+  footer {
+    p {
+      font-size: 1.1rem;
+    }
+  }
 }
 
-@media screen and (max-width: 768px) {
-  html {
-    font-size: 90%;
-  }
+@media screen and (max-width: 48em) {
   section {
     padding: 1rem;
-  }
-
-  .btn {
-    font-size: 16px;
   }
 
   header {
@@ -430,6 +467,7 @@ footer {
             display: block;
             padding: 0.7rem 0;
             color: #111;
+            font-size: pxToRemCalc(17);
           }
         }
       }
@@ -448,7 +486,7 @@ footer {
       align-items: center;
       align-self: flex-end;
       position: absolute;
-      top: 1.7rem;
+      top: calc(2rem + 5px);
       right: 1rem;
       color: #fff;
     }
@@ -457,10 +495,10 @@ footer {
   .banner {
     .content {
       h2 {
-        font-size: 45px;
+        font-size: pxToRemCalc(45);
       }
       p {
-        font-size: 16px;
+        font-size: pxToRemCalc(16);
       }
     }
   }
